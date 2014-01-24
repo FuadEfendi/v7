@@ -12,9 +12,12 @@
  */
 package uk.co.q3c.v7.base.guice;
 
+import java.util.Properties;
+
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-
+import com.vaadin.server.DefaultDeploymentConfiguration;
+import com.vaadin.server.DeploymentConfiguration;
 import com.vaadin.server.ServiceException;
 import com.vaadin.server.SessionInitEvent;
 import com.vaadin.server.SessionInitListener;
@@ -40,4 +43,15 @@ public class BaseServlet extends VaadinServlet implements SessionInitListener {
 		event.getSession().addUIProvider(basicProvider);
 	}
 
+	
+	   protected DeploymentConfiguration createDeploymentConfiguration(
+	            Properties initParameters) {
+	       
+	       //initParameters.setProperty("widgetset", "uk.co.q3c.v7.demo.widgetset.V7demoWidgetset");
+	        return super.createDeploymentConfiguration(initParameters);
+	   
+	   }
+
+	   
+    
 }

@@ -239,7 +239,7 @@ public class DefaultUserNavigationTree extends Tree implements UserNavigationTre
 
 	@Override
 	public void loginStatusChange(boolean status, Subject subject) {
-
+	    loadNodes();
 	}
 
 }
