@@ -41,9 +41,12 @@ public class DefaultStandardPagesModule extends AbstractModule {
 		addEntry("home", PublicHomeView.class, StandardPageKey.Public_Home, PageAccessControl.PUBLIC, null);
 		addEntry("login", LoginView.class, StandardPageKey.Login, PageAccessControl.PUBLIC, null);
 		addEntry("logout", LogoutView.class, StandardPageKey.Logout, PageAccessControl.PUBLIC, null);
-		addEntry("private/home", PrivateHomeView.class, StandardPageKey.Private_Home, PageAccessControl.PERMISSION,
+		addEntry("private/home", PrivateHomeView.class, StandardPageKey.Private_Home, PageAccessControl.AUTHENTICATION,
 				null);
-		addRedirect("private", "private/home");
+        addEntry("private", null, StandardPageKey.Private, PageAccessControl.AUTHENTICATION,
+                null);
+
+        addRedirect("private", "private/home");
 	};
 
 	@Override
